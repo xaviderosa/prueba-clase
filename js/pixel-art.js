@@ -25,9 +25,10 @@ var nombreColores = ['White', 'LightYellow',
 var colorPersonalizado = document.getElementById('color-personalizado');
 var paletaColores = document.getElementById('paleta');
 var grilla = document.getElementById('grilla-pixeles');
-
+var pintar;
 generaPaletaColores();
 generaGrillaPixeles();
+
 
 colorPersonalizado.addEventListener('change', 
   (function() {
@@ -67,4 +68,29 @@ grilla.addEventListener('click', (e) =>{
   var indicador = document.getElementById('indicador-de-color');
   colorGrilla.style.backgroundColor = indicador.style.backgroundColor;
 });
+
+grilla.addEventListener('mousedown', (e) => {
+  pintar = true;
+  console.log(pintar);
+});
+
+grilla.addEventListener('mouseup', (e) => {
+  pintar=false;
+  console.log(pintar);
+});
+
+
+  
+grilla.addEventListener('mouseover', (e) => {
+  if (pintar == true) {
+    var colorGrilla = e.target;
+    var indicador = document.getElementById('indicador-de-color');
+    colorGrilla.style.backgroundColor = indicador.style.backgroundColor;
+  }
+  else {
+    var colorGrilla = e.target;
+    colorGrilla.style.backgroundColor ='';
+  }
+});
+  
 
