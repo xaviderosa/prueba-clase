@@ -25,9 +25,14 @@ var nombreColores = ['White', 'LightYellow',
 var colorPersonalizado = document.getElementById('color-personalizado');
 var paletaColores = document.getElementById('paleta');
 var grilla = document.getElementById('grilla-pixeles');
+
 var pintar;
+
 generaPaletaColores();
 generaGrillaPixeles();
+
+
+
 
 
 colorPersonalizado.addEventListener('change', 
@@ -82,15 +87,61 @@ grilla.addEventListener('mouseup', (e) => {
 
   
 grilla.addEventListener('mouseover', (e) => {
-  if (pintar == true) {
+  if (pintar) {
     var colorGrilla = e.target;
     var indicador = document.getElementById('indicador-de-color');
     colorGrilla.style.backgroundColor = indicador.style.backgroundColor;
   }
-  else {
-    var colorGrilla = e.target;
-    colorGrilla.style.backgroundColor ='';
-  }
 });
   
+$(document).ready(function(){
+  $('#borrar').click(function(){
+    $('#grilla-pixeles div').each(function(){
+      $(this).animate({'backgroundColor':''},1000);
+    });     
+  });
+  $('#batman').click(function(){
+    cargarSuperheroe(batman);
+  });
+  $('#batman').mouseover(function(){
+    $(this).css({'border':'solid 3px rgb(255, 255, 128)'});
+  });
+  $('#batman').mouseout(function(){
+    $(this).css({'border':''});
+  });
 
+  $('#wonder').click(function(){
+    cargarSuperheroe(wonder);
+  });
+  $('#wonder').mouseover(function(){
+    $(this).css({'border':'solid 3px rgb(255, 255, 128)'});
+  });
+  $('#wonder').mouseout(function(){
+    $(this).css({'border':''});
+  });
+
+  $('#flash').click(function(){
+    cargarSuperheroe(flash);
+  });
+  $('#flash').mouseover(function(){
+    $(this).css({'border':'solid 3px rgb(255, 255, 128)'});
+  });
+  $('#flash').mouseout(function(){
+    $(this).css({'border':''});
+  });
+
+  $('#invisible').click(function(){
+    cargarSuperheroe(invisible);
+  });
+  $('#invisible').mouseover(function(){
+    $(this).css({'border':'solid 3px rgb(255, 255, 128)'});
+  });
+  $('#invisible').mouseout(function(){
+    $(this).css({'border':''});
+  });
+});
+ 
+var btnGuargardar = document.getElementById("guardar");
+    btnGuargardar.addEventListener("click", guardarPixelArt 
+    );
+  
